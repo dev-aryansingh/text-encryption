@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Text Encryption — StarkHood Security</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <p class="badge">StarkHood</p>
+      <h1>Text <span>Encryption</span></h1>
+      <p class="subtitle"> AES · DES · RSA</p>
+    </header>
+
+    <!-- Algorithm selector -->
+    <div class="algo-row">
+      <button class="algo-btn active" data-algo="AES">AES</button>
+      <button class="algo-btn" data-algo="DES">DES</button>
+      <button class="algo-btn" data-algo="RSA">RSA</button>
+    </div>
+
+    <!-- Algorithm info bar -->
+    <div class="info-bar" id="infoBar">
+      <span class="info-tag" id="infoTag">Symmetric</span>
+      <span class="info-text" id="infoText">AES-256 — most widely used encryption standard. Requires a secret key to encrypt and decrypt.</span>
+    </div>
+
+    <!-- Secret key input (hidden for RSA) -->
+    <div class="card" id="keyCard">
+      <label class="field-label" for="keyInput">Secret key</label>
+      <input type="text" id="keyInput" placeholder="Enter your secret key..." autocomplete="off" spellcheck="false"/>
+    </div>
+
+    <!-- RSA keys display -->
+    <div class="card rsa-keys" id="rsaCard" style="display:none;">
+      <p class="field-label">RSA key pair <span class="muted">(generated on server)</span></p>
+      <div class="key-box">
+        <p class="key-label">Public key <span class="muted">(encrypts)</span></p>
+        <pre id="rsaPublic" class="key-text">Loading...</pre>
+      </div>
+      <div class="key-box">
+        <p class="key-label">Private key <span class="muted">(decrypts)</span></p>
+        <pre id="rsaPrivate" class="key-text">Loading...</pre>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="card">
+      <label class="field-label" for="inputText">Plaintext</label>
+      <textarea id="inputText" rows="4" placeholder="Type the text you want to encrypt..."></textarea>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="action-row">
+      <button class="btn-primary" id="encryptBtn">Encrypt</button>
+      <button class="btn-secondary" id="decryptBtn">Decrypt</button>
+      <button class="btn-ghost" id="clearBtn">Clear</button>
+    </div>
+
+    <!-- Output -->
+    <div class="card output-card" id="outputCard" style="display:none;">
+      <div class="output-header">
+        <span class="field-label" id="outputLabel">Encrypted output</span>
+        <button class="copy-btn" id="copyBtn">Copy</button>
+      </div>
+      <textarea id="outputText" rows="5" readonly></textarea>
+      <p class="output-meta" id="outputMeta"></p>
+    </div>
+
+    <footer>Built by <span>StarkHood</span> · Pinnacle Labs Cybersecurity Internship 2026</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
