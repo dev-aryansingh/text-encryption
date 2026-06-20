@@ -9,17 +9,14 @@ const PORT = 3001;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Generate RSA key pair once on server start
 const rsaKey = new NodeRSA({ b: 512 });
 const publicKey = rsaKey.exportKey('public');
 const privateKey = rsaKey.exportKey('private');
 
-// Get RSA public key (for display)
 app.get('/api/rsa/keys', (req, res) => {
   res.json({ publicKey, privateKey });
 });
 
-// ENCRYPT
 app.post('/api/encrypt', (req, res) => {
   const { text, algorithm, key } = req.body;
 
@@ -58,7 +55,6 @@ app.post('/api/encrypt', (req, res) => {
   }
 });
 
-// DECRYPT
 app.post('/api/decrypt', (req, res) => {
   const { text, algorithm, key } = req.body;
 

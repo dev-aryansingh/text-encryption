@@ -34,7 +34,6 @@ const encryptBtn = document.getElementById('encryptBtn');
 const decryptBtn = document.getElementById('decryptBtn');
 const clearBtn   = document.getElementById('clearBtn');
 
-// Load RSA keys on page load
 async function loadRSAKeys() {
   try {
     const res = await fetch('/api/rsa/keys');
@@ -49,7 +48,6 @@ async function loadRSAKeys() {
 
 loadRSAKeys();
 
-// Algorithm switching
 algoBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     algoBtns.forEach(b => b.classList.remove('active'));
@@ -73,7 +71,6 @@ algoBtns.forEach(btn => {
   });
 });
 
-// Encrypt
 encryptBtn.addEventListener('click', async () => {
   const text = inputText.value.trim();
   const key  = keyInput.value.trim();
@@ -109,7 +106,6 @@ encryptBtn.addEventListener('click', async () => {
   }
 });
 
-// Decrypt
 decryptBtn.addEventListener('click', async () => {
   const text = inputText.value.trim();
   const key  = keyInput.value.trim();
@@ -145,7 +141,6 @@ decryptBtn.addEventListener('click', async () => {
   }
 });
 
-// Copy output
 copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(outputText.value).then(() => {
     copyBtn.textContent = 'Copied!';
@@ -153,7 +148,6 @@ copyBtn.addEventListener('click', () => {
   });
 });
 
-// Clear
 clearBtn.addEventListener('click', () => {
   inputText.value = '';
   keyInput.value = '';
@@ -161,7 +155,6 @@ clearBtn.addEventListener('click', () => {
   clearError();
 });
 
-// Error handling
 function showError(msg) {
   let el = document.getElementById('errorMsg');
   if (!el) {
