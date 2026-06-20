@@ -85,7 +85,8 @@ Open `http://localhost:3001`
 - **Frontend:** HTML, CSS, Vanilla JS
   
 
-- ## Security Notice
+ 
+ ## Security Notice
 
 This project is intended for learning and demonstration purposes.
 
