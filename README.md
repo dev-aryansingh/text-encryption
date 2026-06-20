@@ -83,3 +83,13 @@ Open `http://localhost:3001`
 
 - **Backend:** Node.js, Express, crypto-js, node-rsa
 - **Frontend:** HTML, CSS, Vanilla JS
+  
+
+ 
+ ## Security Notice
+
+This project is intended for learning and demonstration purposes.
+
+DES is considered insecure and is included only for historical and educational comparison.
+
+For real-world applications, use AES-256 and RSA-2048+.
